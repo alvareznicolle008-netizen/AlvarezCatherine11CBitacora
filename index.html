@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -60,6 +61,16 @@
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
+    /* Estilos para el reproductor de Video */
+    .contenedor-video {
+        width: 100%;
+        max-height: 450px;
+        margin-top: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        outline: none;
+    }
+
     footer {
         display: flex;
         justify-content: space-between;
@@ -91,12 +102,17 @@
     <main>
         <div class="semana">
             <h4>Semana 1: Introducción a CSS</h4>
-            <p>Hoy aprendimos sobre selectores y cómo cambiar el color de los textos. Aquí puedes ver mi documento sobre Arduino:</p>
+            <p>Hoy aprendimos sobre selectores y cómo cambiar el color de los textos. Aquí puedes ver mi documento sobre Arduino y la grabación de pantalla correspondiente:</p>
             
             <iframe 
                 src="recursos/documento/Introduccion arduino, catehrine nicolle alvares.pdf#toolbar=0&navpanes=0" 
                 class="contenedor-pdf">
             </iframe>
+
+            <video controls class="contenedor-video">
+                <source src="recursos/Grabación de pantalla 2026-06-01 122146.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de este video.
+            </video>
         </div>
 
         <div class="semana">
