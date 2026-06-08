@@ -60,21 +60,14 @@
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    /* Estilos para el nuevo contenedor del reproductor de Video */
-    .contenedor-video-reproductor {
+    /* Estilos para el reproductor de Video incorporado */
+    .contenedor-video {
         width: 100%;
-        height: 480px;
+        max-height: 450px;
         margin-top: 15px;
-        border: none;
         border-radius: 8px;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    /* Estilo para separar los apartados internos */
-    .apartado-interno {
-        margin-top: 30px;
-        border-top: 1px dashed rgb(246, 168, 168);
-        padding-top: 20px;
+        outline: none;
     }
 
     footer {
@@ -96,7 +89,6 @@
     @media(max-width:600px){
         footer { flex-direction: column; gap: 15px; }
         .contenedor-pdf { height: 400px; }
-        .contenedor-video-reproductor { height: 300px; }
     }
     </style>
 </head>
@@ -115,20 +107,27 @@
                 src="recursos/documento/Introduccion arduino, catehrine nicolle alvares.pdf#toolbar=0&navpanes=0" 
                 class="contenedor-pdf">
             </iframe>
-
-            <div class="apartado-interno">
-                <h5>Circuito:</h5>
-                <p>A continuación se muestra la grabación de pantalla del funcionamiento del circuito:</p>
-                
-                <iframe 
-                    src="recursos/video/Grabación de pantalla 2026-06-01 122146.mp4" 
-                    class="contenedor-video-reproductor"
-                    allow="autoplay">
-                </iframe>
-            </div>
         </div>
 
         <div class="semana">
             <h4>Semana 2: Box Model</h4>
             <p>Entendiendo el margen, relleno y bordes de los elementos.</p>
         </div>
+
+        <div class="semana">
+            <h4>Semana 4: Simulación de Circuito Electrónico con LED RGB</h4>
+            <p>A continuación se muestra el video demostrativo de la ejecución y el flujo de trabajo del circuito programado directamente desde la plataforma Tinkercad:</p>
+            
+            <video class="contenedor-video" controls>
+                <source src="recursos/video/Grabación de pantalla 2026-06-08 115850.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video en HTML5.
+            </video>
+        </div>
+    </main>
+
+    <footer>
+        <span>@cathyvipi</span>
+        <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" height="65" alt="Logo Colegio">
+    </footer>
+</body>
+</html>
