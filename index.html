@@ -70,6 +70,17 @@
         outline: none;
     }
 
+    /* NUEVO: Estilos para que la imagen no se desborde y encaje perfecta */
+    .contenedor-img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin-top: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
     footer {
         display: flex;
         justify-content: space-between;
@@ -104,7 +115,8 @@
             <p>Hoy aprendimos sobre selectores y cómo cambiar el color de los textos. Aquí puedes ver mi documento sobre Arduino:</p>
             
             <iframe 
-                src="recursos/documento/Introduccion arduino, catehrine nicolle alvares.pdf#toolbar=0&navpanes=0" 
+                src="RRecursos/documento/Introduccion arduino, catehrine nicolle alvares.pdf#toolbar=0&navpanes=0" 
+                type="application/pdf"
                 class="contenedor-pdf">
             </iframe>
         </div>
@@ -115,15 +127,37 @@
         </div>
 
         <div class="semana">
+            <h4>Semana 3: primera simulación de Arduino (Circuito con LED RGB)</h4>
+            <p>Aquí puedes ver el funcionamiento de la simulación programada en Tinkercad:</p>
+            
+            <video class="contenedor-video" controls>
+                <source src="RRecursos/Nueva carpeta/Grabación de pantalla 2026-06-08 115850.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="semana">
+            <h4>Semana 3: Segunda simulacion de Arduino</h4>
+            <p>Aquí puedes ver el funcionamiento de la simulación programada con una led</p>
+            
+            <img 
+                src="RRecursos/img/Multimedia.jpg" 
+                alt="Segunda simulación Arduino" 
+                class="contenedor-img">
+        </div>
+
+        <div class="semana">
             <h4>Semana 4: Segunda simulación de Arduino (Circuito con LED RGB)</h4>
             <p>Aquí puedes ver el funcionamiento y la ejecución en tiempo real de la simulación programada en Tinkercad:</p>
             
             <video class="contenedor-video" controls>
-                <source src="recursos/video/Grabación de pantalla 2026-06-08 115850.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de video en HTML5.
+                <source src="RRecursos/video 2/1780943355356_OneCameraFinalVideo.mp4" type="video/mp4">
             </video>
         </div>
     </main>
 
     <footer>
-        <span>@cathyvipi
+        <span>@cathyvipi</span>
+        <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" height="65" alt="Logo Colegio">
+    </footer>
+</body>
+</html>
