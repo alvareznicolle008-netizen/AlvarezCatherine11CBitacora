@@ -1,148 +1,273 @@
-<!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Bitácora Catherine Alvarez</title>
+
     <style>
+
     html, body {
+
         height: 100%;
+
         margin: 0;
+
         font-family: 'Segoe UI', Arial, sans-serif;
+
         background-color: #f9f9f9;
+
     }
+
     body {
+
         display: flex;
+
         flex-direction: column;
+
         text-align: center;
+
     }
+
     header {
+
         padding: 40px;
+
         background-color: rgb(255, 220, 226);
+
         color: rgb(150, 72, 64);
+
     }
-    
+
+   
+
     h1{
+
         font-size: 3rem;
+
         color: white;
+
         text-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe, 0 0 30px #bc13fe;
+
         margin: 0;
+
     }
+
+
 
     main {
+
         flex: 1;
+
         padding: 20px;
+
         max-width: 800px;
+
         margin: 0 auto;
+
     }
+
+
 
     .semana {
+
         background-color: white;
+
         border-radius: 12px;
+
         padding: 25px;
+
         margin-bottom: 25px;
+
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
         border-left: 6px solid rgb(246, 168, 168);
+
         transition: transform 0.3s ease;
+
         text-align: left;
+
     }
+
     .semana:hover {
+
         transform: translateY(-5px);
+
     }
+
+
 
     /* Estilos para el visor del PDF */
+
     .contenedor-pdf {
+
         width: 100%;
+
         height: 600px;
+
         margin-top: 15px;
+
         border: none;
+
         border-radius: 8px;
+
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
     }
+
+
 
     /* Estilos para el reproductor de Video */
+
     .contenedor-video {
+
         width: 100%;
+
         max-height: 450px;
+
         margin-top: 15px;
+
         border-radius: 8px;
+
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
         outline: none;
+
     }
+
+
 
     /* NUEVO: Estilos para que la imagen no se desborde y encaje perfecta */
+
     .contenedor-img {
+
         width: 100%;
+
         max-width: 100%;
+
         height: auto;
+
         display: block;
+
         margin-top: 15px;
+
         border-radius: 8px;
+
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
     }
+
+
 
     footer {
+
         display: flex;
+
         justify-content: space-between;
+
         align-items: center;
+
         padding: 15px 50px;
+
         border-top: 5px solid rgb(246, 168, 168);
+
         background-color: rgb(255, 183, 183);
+
     }
+
+
 
     footer img {
+
         transition: transform 0.3s ease;
-    }
-    footer img:hover {
-        transform: scale(1.1);
+
     }
 
-    @media(max-width:600px){
-        footer { flex-direction: column; gap: 15px; }
-        .contenedor-pdf { height: 400px; }
+    footer img:hover {
+
+        transform: scale(1.1);
+
     }
+
+
+
+    @media(max-width:600px){
+
+        footer { flex-direction: column; gap: 15px; }
+
+        .contenedor-pdf { height: 400px; }
+
+    }
+
     </style>
+
 </head>
+
 <body>
+
     <header>
+
         <h1>Bitácora de Catherine</h1>
+
         <h3>Unidad 2da y 3ra</h3>
+
     </header>
-    
+
+   
+
     <main>
+
         <div class="semana">
+
             <h4>Semana 1: Introducción a CSS</h4>
+
             <p>Hoy aprendimos sobre selectores y cómo cambiar el color de los textos. Aquí puedes ver mi documento sobre Arduino:</p>
-            
-            <iframe 
-                src="recursos/documento/Introduccion arduino, catehrine nicolle alvares.pdf#toolbar=0&navpanes=0" 
+
+           
+
+            <iframe
+
+                src="recursos/documento/Introduccion arduino, catehrine nicolle alvares (2).pdf#toolbar=0&navpanes=0"
+
                 type="application/pdf"
+
                 class="contenedor-pdf">
+
             </iframe>
         </div>
 
         <div class="semana">
             <h4>Semana 2: Box Model</h4>
             <p>Entendiendo el margen, relleno y bordes de los elementos.</p>
+
+            <img 
+                src="recursos/fotos/semana2.jpg" 
+                alt="Imagen Semana 2" 
+                class="contenedor-img">
+
         </div>
 
+        <!-- Semana 3 - Espacio 1 (Video semana3) -->
         <div class="semana">
-            <h4>Semana 3: primera simulación de Arduino (Circuito con LED RGB)</h4>
-            <p>Aquí puedes ver el funcionamiento de la simulación programada en Tinkercad:</p>
+            <h4>Semana 3 (Parte 1): Simulación de Arduino</h4>
+            <p>Aquí puedes ver el primer video de la semana:</p>
             
             <video class="contenedor-video" controls>
-                <source src="recursos/Nueva carpeta/Grabación de pantalla 2026-06-08 115850.mp4" type="video/mp4">
+                <source src="recursos/videos/semana3.mp4" type="video/mp4">
             </video>
         </div>
 
+        <!-- Semana 3 - Espacio 2 (Video semana32) -->
         <div class="semana">
-            <h4>Semana 3: Segunda simulacion de Arduino</h4>
-            <p>Aquí puedes ver el funcionamiento de la simulación programada con una led</p>
+            <h4>Semana 3 (Parte 2): Continuación de la simulación</h4>
+            <p>Aquí puedes ver el segundo video de la semana:</p>
             
-            <img 
-                src="Recursos/img/Multimedia.jpg" 
-                alt="Segunda simulación Arduino" 
-                class="contenedor-img">
+            <video class="contenedor-video" controls>
+                <source src="recursos/videos/semana32.mp4" type="video/mp4">
+            </video>
         </div>
 
         <div class="semana">
@@ -150,8 +275,24 @@
             <p>Aquí puedes ver el funcionamiento y la ejecución en tiempo real de la simulación programada en Tinkercad:</p>
             
             <video class="contenedor-video" controls>
-                <source src="recursos/video 2/1780943355356_OneCameraFinalVideo.mp4" type="video/mp4">
+                <source src="recursos/videos/semana4.mp4" type="video/mp4">
             </video>
+        </div>
+
+        <!-- Semana 5 -->
+        <div class="semana">
+            <h4>Semana 5</h4>
+            <p>Semafóro</p>
+            <video class="contenedor-video" controls>
+                <source src="recursos/videos/1783362504374_OneCameraFinalVideo.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Semana 6 -->
+        <div class="semana">
+            <h4>Semana 6</h4>
+            <p>Espacio reservado para las actividades de la semana 6.</p>
+            
         </div>
     </main>
 
