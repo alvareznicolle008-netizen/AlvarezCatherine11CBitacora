@@ -1,245 +1,239 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Bitácora Catherine Alvarez</title>
+    <!-- Google Fonts para una tipografía más moderna -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
+    :root {
+        --rosa-claro: #ffe6eb;
+        --rosa-medio: #ffb3c6;
+        --rosa-oscuro: #d85a82;
+        --rosa-acento: #ff477e;
+        --blanco-transparente: rgba(255, 255, 255, 0.85);
+        --sombra-suave: 0 10px 30px rgba(216, 90, 130, 0.15);
+    }
 
     html, body {
-
         height: 100%;
-
         margin: 0;
-
-        font-family: 'Segoe UI', Arial, sans-serif;
-
-        background-color: #f9f9f9;
-
+        font-family: 'Poppins', sans-serif;
+        /* Fondo con textura sutil en tonos rosas y degradado */
+        background: linear-gradient(135deg, #fff0f3 0%, #ffe3e8 50%, #ffd1dc 100%);
+        background-attachment: fixed;
+        color: #4a3b40;
+        scroll-behavior: smooth;
     }
 
     body {
-
         display: flex;
-
         flex-direction: column;
-
         text-align: center;
-
     }
 
     header {
-
-        padding: 40px;
-
-        background-color: rgb(255, 220, 226);
-
-        color: rgb(150, 72, 64);
-
+        padding: 50px 20px;
+        background: linear-gradient(135deg, rgba(255, 179, 198, 0.9), rgba(255, 143, 171, 0.9));
+        backdrop-filter: blur(10px);
+        border-bottom: 4px solid #fff;
+        box-shadow: 0 4px 20px rgba(216, 90, 130, 0.2);
     }
 
-   
-
-    h1{
-
-        font-size: 3rem;
-
+    h1 {
+        font-size: 3.2rem;
         color: white;
-
-        text-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe, 0 0 30px #bc13fe;
-
+        /* Efecto Neón conservado y mejorado */
+        text-shadow: 0 0 10px #ff477e, 0 0 20px #ff477e, 0 0 40px #bc13fe, 0 0 80px #bc13fe;
         margin: 0;
-
+        font-weight: 700;
+        letter-spacing: 1px;
     }
 
+    header h3 {
+        color: #6d3243;
+        font-weight: 400;
+        margin-top: 10px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
 
+    /* NUEVO: Barra de control interactiva (Filtro / Buscador rápido) */
+    .barra-interactiva {
+        max-width: 800px;
+        margin: 30px auto 10px auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .buscador {
+        flex: 1;
+        padding: 12px 20px;
+        border-radius: 30px;
+        border: 2px solid var(--rosa-medio);
+        background: white;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.95rem;
+        outline: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+
+    .buscador:focus {
+        border-color: var(--rosa-acento);
+        box-shadow: 0 0 10px rgba(255, 71, 126, 0.3);
+    }
+
+    .btn-arriba {
+        background-color: var(--rosa-oscuro);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(216, 90, 130, 0.3);
+    }
+
+    .btn-arriba:hover {
+        background-color: var(--rosa-acento);
+        transform: scale(1.05);
+    }
 
     main {
-
         flex: 1;
-
         padding: 20px;
-
         max-width: 800px;
-
         margin: 0 auto;
-
+        width: 100%;
+        box-sizing: border-box;
     }
 
-
-
     .semana {
-
-        background-color: white;
-
-        border-radius: 12px;
-
-        padding: 25px;
-
-        margin-bottom: 25px;
-
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-
-        border-left: 6px solid rgb(246, 168, 168);
-
-        transition: transform 0.3s ease;
-
+        background-color: var(--blanco-transparente);
+        backdrop-filter: blur(5px);
+        border-radius: 16px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: var(--sombra-suave);
+        border-left: 8px solid var(--rosa-acento);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         text-align: left;
-
     }
 
     .semana:hover {
-
-        transform: translateY(-5px);
-
+        transform: translateY(-6px);
+        box-shadow: 0 15px 35px rgba(216, 90, 130, 0.25);
     }
 
+    .semana h4 {
+        color: var(--rosa-oscuro);
+        font-size: 1.25rem;
+        margin-top: 0;
+        font-weight: 600;
+    }
 
+    .semana p {
+        color: #5c484f;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
 
     /* Estilos para el visor del PDF */
-
     .contenedor-pdf {
-
         width: 100%;
-
-        height: 600px;
-
+        height: 550px;
         margin-top: 15px;
-
-        border: none;
-
-        border-radius: 8px;
-
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
+        border: 2px solid var(--rosa-claro);
+        border-radius: 12px;
+        background: white;
     }
-
-
 
     /* Estilos para el reproductor de Video */
-
     .contenedor-video {
-
         width: 100%;
-
         max-height: 450px;
-
         margin-top: 15px;
-
-        border-radius: 8px;
-
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
+        border-radius: 12px;
+        background: #000;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         outline: none;
-
     }
 
-
-
-    /* NUEVO: Estilos para que la imagen no se desborde y encaje perfecta */
-
+    /* Estilos para la imagen */
     .contenedor-img {
-
         width: 100%;
-
         max-width: 100%;
-
         height: auto;
-
         display: block;
-
         margin-top: 15px;
-
-        border-radius: 8px;
-
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-
-
 
     footer {
-
         display: flex;
-
         justify-content: space-between;
-
         align-items: center;
-
-        padding: 15px 50px;
-
-        border-top: 5px solid rgb(246, 168, 168);
-
-        background-color: rgb(255, 183, 183);
-
+        padding: 20px 50px;
+        border-top: 4px solid var(--rosa-medio);
+        background-color: rgba(255, 209, 220, 0.9);
+        backdrop-filter: blur(5px);
+        color: #5c484f;
+        font-weight: 600;
     }
 
-
-
     footer img {
-
         transition: transform 0.3s ease;
-
+        border-radius: 8px;
     }
 
     footer img:hover {
-
-        transform: scale(1.1);
-
+        transform: scale(1.1) rotate(3deg);
     }
 
-
-
-    @media(max-width:600px){
-
-        footer { flex-direction: column; gap: 15px; }
-
+    @media(max-width: 600px){
+        footer { flex-direction: column; gap: 15px; text-align: center; padding: 20px; }
         .contenedor-pdf { height: 400px; }
-
+        h1 { font-size: 2.3rem; }
+        .barra-interactiva { flex-direction: column; }
     }
-
     </style>
-
 </head>
 
 <body>
-
-    <header>
-
+    <header id="inicio">
         <h1>Bitácora de Catherine</h1>
-
         <h3>Unidad 2da y 3ra</h3>
-
     </header>
+    
+    <!-- NUEVO: Barra interactiva con buscador en tiempo real y botón de acceso rápido -->
+    <div class="barra-interactiva">
+        <input type="text" id="buscadorSemanas" class="buscador" placeholder="🔍 Buscar semana o tema (ej. Arduino, Box Model)..." onkeyup="filtrarSemanas()">
+        <button class="btn-arriba" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑ Volver arriba</button>
+    </div>
 
-   
-
-    <main>
-
-        <div class="semana">
-
+    <main id="contenedor-semanas">
+        <div class="semana" data-titulo="semana 1 introduccion a css arduino">
             <h4>Semana 1: Introducción a CSS</h4>
-
             <p>Hoy aprendimos sobre selectores y cómo cambiar el color de los textos. Aquí puedes ver mi documento sobre Arduino:</p>
-
-           
-
+            
             <iframe
-
                 src="recursos/documento/Introduccion arduino, catehrine nicolle alvares (2).pdf#toolbar=0&navpanes=0"
-
                 type="application/pdf"
-
                 class="contenedor-pdf">
-
             </iframe>
         </div>
 
-        <div class="semana">
+        <div class="semana" data-titulo="semana 2 box model">
             <h4>Semana 2: Box Model</h4>
             <p>Entendiendo el margen, relleno y bordes de los elementos.</p>
 
@@ -247,21 +241,18 @@
                 src="recursos/fotos/semana2.jpg" 
                 alt="Imagen Semana 2" 
                 class="contenedor-img">
-
         </div>
 
-        <!-- Semana 3 - Espacio 1 (Video semana3) -->
-        <div class="semana">
+        <div class="semana" data-titulo="semana 3 parte 1 simulacion de arduino">
             <h4>Semana 3 (Parte 1): Simulación de Arduino</h4>
             <p>Aquí puedes ver el primer video de la semana:</p>
             
             <video class="contenedor-video" controls>
-                <source src="recursos/videos/semana3.mp4" type="video/mp4">
+                <source src="recursos/videos/semana31.mp4" type="video/mp4">
             </video>
         </div>
 
-        <!-- Semana 4 - Espacio 2 (Video semana32) -->
-        <div class="semana">
+        <div class="semana" data-titulo="semana 4 parte 2 continuacion de la simulacion">
             <h4>Semana 4 (Parte 2): Continuación de la simulación</h4>
             <p>Aquí puedes ver el segundo video de la semana:</p>
             
@@ -270,7 +261,7 @@
             </video>
         </div>
 
-        <div class="semana">
+        <div class="semana" data-titulo="semana 5 segunda simulacion de arduino circuito con led rgb">
             <h4>Semana 5: Segunda simulación de Arduino (Circuito con LED RGB)</h4>
             <p>Aquí puedes ver el funcionamiento y la ejecución en tiempo real de la simulación programada en Tinkercad:</p>
             
@@ -279,28 +270,46 @@
             </video>
         </div>
 
-        <!-- Semana 5 -->
-        <div class="semana">
+        <div class="semana" data-titulo="semana 6 semaforo">
             <h4>Semana 6</h4>
-            <p>Semafóro</p>
+            <p>Semáforo</p>
             <video class="contenedor-video" controls>
                 <source src="recursos/videos/1783362504374_OneCameraFinalVideo.mp4" type="video/mp4">
             </video>
         </div>
 
-        <!-- Semana 7 -->
-        <div class="semana">
+        <div class="semana" data-titulo="semana 7">
             <h4>Semana 7</h4>
             <p>Espacio reservado para las actividades de la semana 7.</p>
             <video class="contenedor-video" controls>
                 <source src="recursos/videos/semana6.mp4" type="video/mp4">
             </video>
-            
         </div>
     </main>
 
     <footer>
         <span>@cathyvipi</span>
+        <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" height="55" alt="Logo Colegio">
+    </footer>
+
+    <!-- Script JavaScript para dar interactividad de búsqueda -->
+    <script>
+    function filtrarSemanas() {
+        let input = document.getElementById('buscadorSemanas').value.toLowerCase();
+        let semanas = document.getElementsByClassName('semana');
+
+        for (let i = 0; i < semanas.length; i++) {
+            let texto = semanas[i].getAttribute('data-titulo') + " " + semanas[i].innerText.toLowerCase();
+            if (texto.includes(input)) {
+                semanas[i].style.display = "";
+            } else {
+                semanas[i].style.display = "none";
+            }
+        }
+    }
+    </script>
+</body>
+</html>
         <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" height="65" alt="Logo Colegio">
     </footer>
 </body>
