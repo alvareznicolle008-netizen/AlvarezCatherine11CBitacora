@@ -1,317 +1,700 @@
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitácora Catherine Alvarez</title>
-    <!-- Google Fonts para una tipografía más moderna -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <title>Bitácora de Catherine Alvarez | Unidad 2 y 3</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-    :root {
-        --rosa-claro: #ffe6eb;
-        --rosa-medio: #ffb3c6;
-        --rosa-oscuro: #d85a82;
-        --rosa-acento: #ff477e;
-        --blanco-transparente: rgba(255, 255, 255, 0.85);
-        --sombra-suave: 0 10px 30px rgba(216, 90, 130, 0.15);
-    }
+        :root {
+            --rosa-pastel: #ffe5ec;
+            --rosa-suave: #ffb3c6;
+            --rosa-medio: #ff8fab;
+            --rosa-oscuro: #fb6f92;
+            --rosa-fuerte: #ff2a6d;
+            --morado-suave: #e8d7ff;
+            --morado-medio: #c77dff;
+            --morado-oscuro: #5a189a;
+            --morado-neon: #7b2cbf;
+            --fucsia-neon: #f72585;
+            --blanco-puro: #ffffff;
+            --blanco-transparente: rgba(255, 255, 255, 0.92);
+            --texto-oscuro: #2b1b2d;
+            --sombra-magica: 0 20px 45px rgba(247, 37, 133, 0.28);
+            --sombra-hover: 0 25px 55px rgba(123, 44, 191, 0.38);
+            --borde-radio: 24px;
+        }
 
-    html, body {
-        height: 100%;
-        margin: 0;
-        font-family: 'Poppins', sans-serif;
-        /* Fondo con textura sutil en tonos rosas y degradado */
-        background: linear-gradient(135deg, #fff0f3 0%, #ffe3e8 50%, #ffd1dc 100%);
-        background-attachment: fixed;
-        color: #4a3b40;
-        scroll-behavior: smooth;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    header {
-        padding: 50px 20px;
-        background: linear-gradient(135deg, rgba(255, 179, 198, 0.9), rgba(255, 143, 171, 0.9));
-        backdrop-filter: blur(10px);
-        border-bottom: 4px solid #fff;
-        box-shadow: 0 4px 20px rgba(216, 90, 130, 0.2);
-    }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            /* FONDO SÚPER COLORIDO Y ANIMADO CON MÁS TONOS VIVOS */
+            background: linear-gradient(-45deg, #ff007f, #7209b7, #3a0ca3, #4cc9f0, #ff70a6, #ff9770);
+            background-size: 500% 500%;
+            animation: backgroundPulse 10s ease infinite;
+            background-attachment: fixed;
+            color: var(--texto-oscuro);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
 
-    h1 {
-        font-size: 3.2rem;
-        color: white;
-        /* Efecto Neón conservado y mejorado */
-        text-shadow: 0 0 10px #ff477e, 0 0 20px #ff477e, 0 0 40px #bc13fe, 0 0 80px #bc13fe;
-        margin: 0;
-        font-weight: 700;
-        letter-spacing: 1px;
-    }
+        @keyframes backgroundPulse {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-    header h3 {
-        color: #6d3243;
-        font-weight: 400;
-        margin-top: 10px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-    }
+        /* ENCABEZADO NEÓN VIBRANTE */
+        header {
+            position: relative;
+            padding: 75px 20px 55px 20px;
+            background: linear-gradient(135deg, rgba(247, 37, 133, 0.92), rgba(90, 24, 154, 0.92));
+            backdrop-filter: blur(15px);
+            border-bottom: 6px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 15px 40px rgba(90, 24, 154, 0.35);
+            text-align: center;
+            overflow: hidden;
+        }
 
-    /* NUEVO: Barra de control interactiva (Filtro / Buscador rápido) */
-    .barra-interactiva {
-        max-width: 800px;
-        margin: 30px auto 10px auto;
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
 
-    .buscador {
-        flex: 1;
-        padding: 12px 20px;
-        border-radius: 30px;
-        border: 2px solid var(--rosa-medio);
-        background: white;
-        font-family: 'Poppins', sans-serif;
-        font-size: 0.95rem;
-        outline: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-    }
+        .badge-unidades {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
 
-    .buscador:focus {
-        border-color: var(--rosa-acento);
-        box-shadow: 0 0 10px rgba(255, 71, 126, 0.3);
-    }
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4.2rem;
+            color: #ffffff;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin: 0;
+            line-height: 1.1;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 1),
+                0 0 25px var(--fucsia-neon), 
+                0 0 50px var(--fucsia-neon), 
+                0 0 80px var(--morado-neon), 
+                0 0 120px var(--morado-oscuro);
+            animation: glowPulse 3s infinite alternate;
+        }
 
-    .btn-arriba {
-        background-color: var(--rosa-oscuro);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 30px;
-        cursor: pointer;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 10px rgba(216, 90, 130, 0.3);
-    }
+        @keyframes glowPulse {
+            0% {
+                text-shadow: 0 0 10px rgba(255,255,255,1), 0 0 25px var(--fucsia-neon), 0 0 50px var(--fucsia-neon), 0 0 90px var(--morado-neon);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(255,255,255,1), 0 0 35px var(--fucsia-neon), 0 0 70px var(--morado-neon), 0 0 110px var(--morado-oscuro), 0 0 160px var(--morado-oscuro);
+            }
+        }
 
-    .btn-arriba:hover {
-        background-color: var(--rosa-acento);
-        transform: scale(1.05);
-    }
+        header p.subtitulo {
+            color: #ffffff;
+            font-weight: 700;
+            margin-top: 15px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
 
-    main {
-        flex: 1;
-        padding: 20px;
-        max-width: 800px;
-        margin: 0 auto;
-        width: 100%;
-        box-sizing: border-box;
-    }
+        /* BARRA INTERACTIVA */
+        .barra-interactiva {
+            max-width: 850px;
+            margin: -30px auto 25px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
 
-    .semana {
-        background-color: var(--blanco-transparente);
-        backdrop-filter: blur(5px);
-        border-radius: 16px;
-        padding: 30px;
-        margin-bottom: 30px;
-        box-shadow: var(--sombra-suave);
-        border-left: 8px solid var(--rosa-acento);
-        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        text-align: left;
-    }
+        .buscador-container {
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
 
-    .semana:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 15px 35px rgba(216, 90, 130, 0.25);
-    }
+        .buscador-container i {
+            position: absolute;
+            left: 22px;
+            color: var(--fucsia-neon);
+            font-size: 1.2rem;
+        }
 
-    .semana h4 {
-        color: var(--rosa-oscuro);
-        font-size: 1.25rem;
-        margin-top: 0;
-        font-weight: 600;
-    }
+        .buscador {
+            width: 100%;
+            padding: 18px 20px 18px 56px;
+            border-radius: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.05rem;
+            color: var(--texto-oscuro);
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 30px rgba(90, 24, 154, 0.2);
+        }
 
-    .semana p {
-        color: #5c484f;
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
+        .buscador:focus {
+            border-color: var(--fucsia-neon);
+            background: #ffffff;
+            box-shadow: 0 0 30px rgba(247, 37, 133, 0.45);
+            transform: translateY(-2px);
+        }
 
-    /* Estilos para el visor del PDF */
-    .contenedor-pdf {
-        width: 100%;
-        height: 550px;
-        margin-top: 15px;
-        border: 2px solid var(--rosa-claro);
-        border-radius: 12px;
-        background: white;
-    }
+        /* CONTENEDOR PRINCIPAL */
+        main {
+            flex: 1;
+            padding: 20px 20px 60px 20px;
+            max-width: 850px;
+            margin: 0 auto;
+            width: 100%;
+        }
 
-    /* Estilos para el reproductor de Video */
-    .contenedor-video {
-        width: 100%;
-        max-height: 450px;
-        margin-top: 15px;
-        border-radius: 12px;
-        background: #000;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        outline: none;
-    }
+        /* TARJETAS DE SEMANA */
+        .semana {
+            background: var(--blanco-transparente);
+            backdrop-filter: blur(15px);
+            border-radius: var(--borde-radio);
+            padding: 35px;
+            margin-bottom: 35px;
+            box-shadow: var(--sombra-magica);
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            border-left: 10px solid var(--fucsia-neon);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
 
-    /* Estilos para la imagen */
-    .contenedor-img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin-top: 15px;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
+        .semana:nth-child(even) {
+            border-left-color: var(--morado-medio);
+        }
 
-    footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 50px;
-        border-top: 4px solid var(--rosa-medio);
-        background-color: rgba(255, 209, 220, 0.9);
-        backdrop-filter: blur(5px);
-        color: #5c484f;
-        font-weight: 600;
-    }
+        .semana:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--sombra-hover);
+            background: #ffffff;
+        }
 
-    footer img {
-        transition: transform 0.3s ease;
-        border-radius: 8px;
-    }
+        .semana-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed rgba(247, 37, 133, 0.35);
+            padding-bottom: 12px;
+        }
 
-    footer img:hover {
-        transform: scale(1.1) rotate(3deg);
-    }
+        .semana h4 {
+            color: var(--fucsia-neon);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.65rem;
+            margin: 0;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-    @media(max-width: 600px){
-        footer { flex-direction: column; gap: 15px; text-align: center; padding: 20px; }
-        .contenedor-pdf { height: 400px; }
-        h1 { font-size: 2.3rem; }
-        .barra-interactiva { flex-direction: column; }
-    }
+        .semana:nth-child(even) h4 {
+            color: var(--morado-oscuro);
+        }
+
+        .badge-semana {
+            background: var(--rosa-pastel);
+            color: var(--fucsia-neon);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .semana:nth-child(even) .badge-semana {
+            background: var(--morado-suave);
+            color: var(--morado-oscuro);
+        }
+
+        .semana p {
+            color: #3f2a3e;
+            font-size: 1.08rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* ACORDEÓN INTERACTIVO */
+        details.acordeon-doc {
+            background: #ffffff;
+            border: 2px solid var(--rosa-suave);
+            border-radius: 18px;
+            margin-top: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(247, 37, 133, 0.12);
+            transition: all 0.3s ease;
+        }
+
+        details.acordeon-doc[open] {
+            border-color: var(--morado-medio);
+            box-shadow: 0 12px 28px rgba(123, 44, 191, 0.22);
+        }
+
+        summary.acordeon-summary {
+            background: linear-gradient(135deg, var(--rosa-pastel), var(--morado-suave));
+            padding: 18px 22px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--morado-oscuro);
+            cursor: pointer;
+            outline: none;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            user-select: none;
+            transition: background 0.3s ease;
+        }
+
+        summary.acordeon-summary:hover {
+            background: linear-gradient(135deg, var(--rosa-suave), var(--morado-medio));
+            color: #ffffff;
+        }
+
+        .acordeon-body {
+            padding: 22px;
+            background: #ffffff;
+        }
+
+        /* MULTIMEDIA */
+        .contenedor-pdf {
+            width: 100%;
+            height: 550px;
+            border: none;
+            border-radius: 14px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            background: #000;
+            border: 3px solid rgba(255, 255, 255, 0.95);
+        }
+
+        .contenedor-video {
+            width: 100%;
+            max-height: 480px;
+            display: block;
+            outline: none;
+        }
+
+        .img-wrapper {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            border: 3px solid rgba(255, 255, 255, 0.95);
+            transition: transform 0.4s ease;
+        }
+
+        .img-wrapper:hover {
+            transform: scale(1.02);
+        }
+
+        .contenedor-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .grid-imagenes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        /* PIE DE PÁGINA CON EL BOTÓN HASTA ABAJO DE TODO */
+        footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            padding: 40px 20px;
+            border-top: 4px solid rgba(255, 255, 255, 0.9);
+            background: linear-gradient(135deg, rgba(247, 37, 133, 0.95), rgba(90, 24, 154, 0.95));
+            backdrop-filter: blur(15px);
+            color: #ffffff;
+            box-shadow: 0 -15px 35px rgba(90, 24, 154, 0.3);
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 900px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        footer span {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        footer img {
+            border-radius: 14px;
+            background: white;
+            padding: 8px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        footer img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .btn-arriba-footer {
+            background: #ffffff;
+            color: var(--fucsia-neon);
+            border: none;
+            padding: 16px 36px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-arriba-footer:hover {
+            transform: translateY(-4px) scale(1.05);
+            background: var(--rosa-pastel);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+            color: var(--morado-oscuro);
+        }
+
+        .sin-resultados {
+            text-align: center;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: var(--borde-radio);
+            box-shadow: var(--sombra-magica);
+            color: var(--fucsia-neon);
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: none;
+            margin-top: 20px;
+        }
+
+        @media(max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
     </style>
 </head>
 
 <body>
     <header id="inicio">
-        <h1>Bitácora de Catherine</h1>
-        <h3>Unidad 2da y 3ra</h3>
+        <div class="header-content">
+            <span class="badge-unidades"><i class="fa-solid fa-graduation-cap"></i> Bitácora Académica Oficial</span>
+            <h1>Bitácora de Catherine</h1>
+            <p class="subtitulo">Unidad 2da y 3ra • Proyectos y Prácticas</p>
+        </div>
     </header>
-    
-    <!-- NUEVO: Barra interactiva con buscador en tiempo real y botón de acceso rápido -->
+   
+    <!-- Barra de búsqueda -->
     <div class="barra-interactiva">
-        <input type="text" id="buscadorSemanas" class="buscador" placeholder="🔍 Buscar semana o tema (ej. Arduino, Box Model)..." onkeyup="filtrarSemanas()">
-        <button class="btn-arriba" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑ Volver arriba</button>
+        <div class="buscador-container">
+            <input type="text" id="buscadorSemanas" class="buscador" placeholder="🔍 Buscar por número de semana o tema (ej. 1, Arduino, Box Model, Semáforo)..." onkeyup="filtrarSemanas()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
     </div>
 
     <main id="contenedor-semanas">
+        <!-- Semana 1 -->
         <div class="semana" data-titulo="semana 1 introduccion a css arduino">
-            <h4>Semana 1: Introducción a CSS</h4>
-            <p>Hoy aprendimos sobre selectores y cómo cambiar el color de los textos. Aquí puedes ver mi documento sobre Arduino:</p>
+            <div class="semana-header">
+                <h4><i class="fa-solid fa-code"></i> Semana 1</h4>
+                <span class="badge-semana">Introducción a CSS</span>
+            </div>
+            <p>Hoy aprendimos sobre selectores y cómo cambiar el color de los textos. Haz clic abajo para desplegar u ocultar mi documento sobre Arduino:</p>
             
-            <iframe
-                src="recursos/documento/Introduccion arduino, catehrine nicolle alvares (2).pdf#toolbar=0&navpanes=0"
-                type="application/pdf"
-                class="contenedor-pdf">
-            </iframe>
+            <details class="acordeon-doc">
+                <summary class="acordeon-summary"><i class="fa-solid fa-file-pdf"></i> Ver documento de Arduino (Ocultar / Mostrar)</summary>
+                <div class="acordeon-body">
+                    <iframe
+                        src="recursos/documento/Introduccion arduino, catehrine nicolle alvares (2).pdf#toolbar=0&navpanes=0"
+                        type="application/pdf"
+                        class="contenedor-pdf">
+                    </iframe>
+                </div>
+            </details>
         </div>
 
+        <!-- Semana 2 -->
         <div class="semana" data-titulo="semana 2 box model">
-            <h4>Semana 2: Box Model</h4>
-            <p>Entendiendo el margen, relleno y bordes de los elementos.</p>
+            <div class="semana-header">
+                <h4><i class="fa-solid fa-box"></i> Semana 2</h4>
+                <span class="badge-semana">Box Model</span>
+            </div>
+            <p>Entendiendo el margen, relleno y bordes de los elementos en el diseño web profesional.</p>
 
-            <img 
-                src="recursos/fotos/semana2.jpg" 
-                alt="Imagen Semana 2" 
-                class="contenedor-img">
+            <details class="acordeon-doc" open>
+                <summary class="acordeon-summary"><i class="fa-solid fa-image"></i> Ver imagen de Box Model (Ocultar / Mostrar)</summary>
+                <div class="acordeon-body">
+                    <div class="img-wrapper">
+                        <img src="recursos/fotos/semana2.jpg" alt="Imagen Semana 2 - Box Model" class="contenedor-img">
+                    </div>
+                </div>
+            </details>
         </div>
 
+        <!-- Semana 3 -->
         <div class="semana" data-titulo="semana 3 parte 1 simulacion de arduino">
-            <h4>Semana 3 (Parte 1): Simulación de Arduino</h4>
-            <p>Aquí puedes ver el primer video de la semana:</p>
+            <div class="semana-header">
+                <h4><i class="fa-solid fa-microchip"></i> Semana 3 (Parte 1)</h4>
+                <span class="badge-semana">Simulación de Arduino</span>
+            </div>
+            <p>Aquí puedes ver el primer video explicativo de la práctica semanal:</p>
             
-            <video class="contenedor-video" controls>
-                <source src="recursos/videos/semana31.mp4" type="video/mp4">
-            </video>
+            <details class="acordeon-doc" open>
+                <summary class="acordeon-summary"><i class="fa-solid fa-video"></i> Ver video de la práctica (Ocultar / Mostrar)</summary>
+                <div class="acordeon-body">
+                    <div class="video-wrapper">
+                        <video class="contenedor-video" controls>
+                            <source src="recursos/videos/semana31.mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                    </div>
+                </div>
+            </details>
         </div>
 
+        <!-- Semana 4 -->
         <div class="semana" data-titulo="semana 4 parte 2 continuacion de la simulacion">
-            <h4>Semana 4 (Parte 2): Continuación de la simulación</h4>
-            <p>Aquí puedes ver el segundo video de la semana:</p>
+            <div class="semana-header">
+                <h4><i class="fa-solid fa-play"></i> Semana 4 (Parte 2)</h4>
+                <span class="badge-semana">Continuación</span>
+            </div>
+            <p>Aquí puedes ver el segundo video con la continuación y desarrollo de la simulación:</p>
             
-            <video class="contenedor-video" controls>
-                <source src="recursos/videos/semana32.mp4" type="video/mp4">
-            </video>
+            <details class="acordeon-doc">
+                <summary class="acordeon-summary"><i class="fa-solid fa-video"></i> Ver video (Ocultar / Mostrar)</summary>
+                <div class="acordeon-body">
+                    <div class="video-wrapper">
+                        <video class="contenedor-video" controls>
+                            <source src="recursos/videos/semana32.mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                    </div>
+                </div>
+            </details>
         </div>
 
+        <!-- Semana 5 -->
         <div class="semana" data-titulo="semana 5 segunda simulacion de arduino circuito con led rgb">
-            <h4>Semana 5: Segunda simulación de Arduino (Circuito con LED RGB)</h4>
+            <div class="semana-header">
+                <h4><i class="fa-solid fa-lightbulb"></i> Semana 5</h4>
+                <span class="badge-semana">Circuito con LED RGB</span>
+            </div>
             <p>Aquí puedes ver el funcionamiento y la ejecución en tiempo real de la simulación programada en Tinkercad:</p>
             
-            <video class="contenedor-video" controls>
-                <source src="recursos/videos/semana4.mp4" type="video/mp4">
-            </video>
+            <details class="acordeon-doc">
+                <summary class="acordeon-summary"><i class="fa-solid fa-video"></i> Ver video de simulación RGB (Ocultar / Mostrar)</summary>
+                <div class="acordeon-body">
+                    <div class="video-wrapper">
+                        <video class="contenedor-video" controls>
+                            <source src="recursos/videos/semana4.mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                    </div>
+                </div>
+            </details>
         </div>
 
+        <!-- Semana 6 -->
         <div class="semana" data-titulo="semana 6 semaforo">
-            <h4>Semana 6</h4>
-            <p>Semáforo</p>
-            <video class="contenedor-video" controls>
-                <source src="recursos/videos/1783362504374_OneCameraFinalVideo.mp4" type="video/mp4">
-            </video>
+            <div class="semana-header">
+                <h4><i class="fa-solid fa-traffic-light"></i> Semana 6</h4>
+                <span class="badge-semana">Semáforo</span>
+            </div>
+            <p>Desarrollo y demostración del circuito de semáforo automatizado.</p>
+            
+            <details class="acordeon-doc">
+                <summary class="acordeon-summary"><i class="fa-solid fa-video"></i> Ver video del Semáforo (Ocultar / Mostrar)</summary>
+                <div class="acordeon-body">
+                    <div class="video-wrapper">
+                        <video class="contenedor-video" controls>
+                            <source src="recursos/videos/1783362504374_OneCameraFinalVideo.mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                    </div>
+                </div>
+            </details>
         </div>
 
+        <!-- Semana 7 -->
         <div class="semana" data-titulo="semana 7">
-            <h4>Semana 7</h4>
-            <p>Espacio reservado para las actividades de la semana 7.</p>
-            <video class="contenedor-video" controls>
-                <source src="recursos/videos/semana6.mp4" type="video/mp4">
-            </video>
-            <!-- Semana 8 -->
-        <div class="semana">
-            <h4>Semana 8</h4>
-            <p>Espacio reservado para las actividades de la semana 8.</p>
-            <video class="contenedor-video" controls>
-                <source src="recursos/videos/Grabación de pantalla 2026-07-26 134924.mp4" type="video/mp4">
-            </video>
+            <div class="semana-header">
+                <h4><i class="fa-solid fa-laptop-code"></i> Semana 7</h4>
+                <span class="badge-semana">Actividades</span>
+            </div>
+            <p>Espacio reservado para las actividades y proyectos prácticos de la semana 7.</p>
+            
+            <details class="acordeon-doc">
+                <summary class="acordeon-summary"><i class="fa-solid fa-video"></i> Ver video de actividades (Ocultar / Mostrar)</summary>
+                <div class="acordeon-body">
+                    <div class="video-wrapper">
+                        <video class="contenedor-video" controls>
+                            <source src="recursos/videos/semana6.mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Semana 8 -->
+        <div class="semana" data-titulo="semana 8">
+            <div class="semana-header">
+                <h4><i class="fa-solid fa-star"></i> Semana 8</h4>
+                <span class="badge-semana">Actividades</span>
+            </div>
+            <p>Espacio reservado para las actividades y grabaciones de la semana 8.</p>
+            
+            <details class="acordeon-doc">
+                <summary class="acordeon-summary"><i class="fa-solid fa-video"></i> Ver video de semana 8 (Ocultar / Mostrar)</summary>
+                <div class="acordeon-body">
+                    <div class="video-wrapper">
+                        <video class="contenedor-video" controls>
+                            <source src="recursos/videos/Grabación de pantalla 2026-07-26 134924.mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- Suficiencia de TICs -->
+        <div class="semana" data-titulo="Suficiencia de tics reto suficiencia">
+            <div class="semana-header">
+                <h4><i class="fa-solid fa-award"></i> Reto de Suficiencia TICs</h4>
+                <span class="badge-semana">Evaluación Final</span>
+            </div>
+            <p>Evidencia en video y capturas de pantalla correspondientes al reto de suficiencia de TICs.</p>
+            
+            <details class="acordeon-doc" open>
+                <summary class="acordeon-summary"><i class="fa-solid fa-folder-open"></i> Ver evidencias del reto (Ocultar / Mostrar)</summary>
+                <div class="acordeon-body">
+                    <div class="video-wrapper">
+                        <video class="contenedor-video" controls>
+                            <source src="recursos/videos/suficiencia.mp4" type="video/mp4">
+                            Tu navegador no soporta la reproducción de video.
+                        </video>
+                    </div>
+
+                    <div class="grid-imagenes">
+                        <div class="img-wrapper">
+                            <img src="recursos/fotos/Captura de pantalla 2026-07-27 115122 (1).png" alt="Captura Suficiencia 1" class="contenedor-img">
+                        </div>
+                        <div class="img-wrapper">
+                            <img src="recursos/fotos/Captura de pantalla 2026-07-27 121346.png" alt="Captura Suficiencia 2" class="contenedor-img">
+                        </div>
+                        <div class="img-wrapper">
+                            <img src="recursos/fotos/Captura de pantalla 2026-07-27 175045.png" alt="Captura Suficiencia 3" class="contenedor-img">
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div id="sinResultados" class="sin-resultados">
+            <i class="fa-solid fa-face-frown"></i> No se encontraron semanas o temas que coincidan con tu búsqueda. ¡Intenta con otra palabra!
         </div>
     </main>
 
+    <!-- PIE DE PÁGINA CON EL BOTÓN HASTA ABAJO DE TODO -->
     <footer>
-        <span>@cathyvipi</span>
-        <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" height="55" alt="Logo Colegio">
+        <button class="btn-arriba-footer" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+            <i class="fa-solid fa-arrow-up"></i> Volver arriba de todo
+        </button>
+        <div class="footer-content">
+            <span>@cathyvipi • Bitácora Catherine Alvarez</span>
+            <img src="https://www.capouilliez.edu.gt/assets/img/logo.png" height="55" alt="Logo Colegio Capouilliez">
+        </div>
     </footer>
 
-    <!-- Script JavaScript para dar interactividad de búsqueda -->
+    <!-- Script JavaScript de Filtrado -->
     <script>
     function filtrarSemanas() {
-        let input = document.getElementById('buscadorSemanas').value.toLowerCase();
+        let input = document.getElementById('buscadorSemanas').value.toLowerCase().trim();
         let semanas = document.getElementsByClassName('semana');
+        let sinResultados = document.getElementById('sinResultados');
+        let contadorVisibles = 0;
 
         for (let i = 0; i < semanas.length; i++) {
             let texto = semanas[i].getAttribute('data-titulo') + " " + semanas[i].innerText.toLowerCase();
             if (texto.includes(input)) {
                 semanas[i].style.display = "";
+                contadorVisibles++;
             } else {
                 semanas[i].style.display = "none";
             }
+        }
+
+        if (contadorVisibles === 0) {
+            sinResultados.style.display = "block";
+        } else {
+            sinResultados.style.display = "none";
         }
     }
     </script>
